@@ -1,0 +1,18 @@
+<section class="banner-sect">
+    <div class="container">
+      <div class="main-row row">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="collapse navbar-collapse" id="main-menu-collapse">
+            <ul class="main-menu">
+              <li *ngFor="let category of categories">
+                <a href="#"><i class="fa fa-television"></i> {{category.name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-6 col-sm-12">
+        <banners></banners>
+      </div>
+      </div>
+    </div>
+  </section>

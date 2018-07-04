@@ -23,9 +23,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/material-design-icons/iconfont/material-icons.css",
+              "src/styles.css",
+              "src/assets/js/slick-theme.css",
+              "src/assets/js/slick.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/main-dist.js"
+            ]
           },
           "configurations": {
             "production": {

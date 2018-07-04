@@ -1,0 +1,13 @@
+{
+    "emailRequired" : "Vui lòng nhập Email",
+    "passwordRequired" : "Vui lòng nhập Mật Khẩu",
+    "repeatPasswordRequired": "Vui lòng nhập Nhập Lại Mật Khẩu",
+    "passwordNotMatch": "Mật Khẩu không trùng khớp",
+    "emailFormatRequired": "Email không đúng định dạng",
+    "emailContainSpace": "Email không thể chứa khoảng trắng",
+    "passwordContainSpace": "Password không thể chứa khoảng trắng",
+    "emailIsExist": "Email đã được sử dụng",
+    "ACTION_SUCCESS": "Thao tác thành công",
+    "LOGIN_ID_NOT_EXIST": "Tên đăng nhập không tồn tại",
+    "PASSWORD_INCORRECT": "Mật khẩu không chính xác"
+}

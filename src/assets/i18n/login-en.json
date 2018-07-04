@@ -1,0 +1,5 @@
+{
+    "emailRequired" : "Vui lòng nhập Email",
+    "passwordRequired" : "Vui lòng nhập Mật Khẩu",
+    "repeatPasswordRequired": "Vui lòng nhập Nhập Lại Mật Khẩu"
+}

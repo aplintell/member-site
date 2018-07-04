@@ -1,0 +1,100 @@
+<section class="main-sect">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 page-header mb-3">
+          <h1 class="h2 mb-4 full-sect">Thêm đấu giá mới</h1>
+          <nav aria-label="breadcrumb" class="full-sect">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><span>Thêm đấu giá mới</span></li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-12 bg-light pt-4 pb-4">
+          <h3 class="h4">Thông tin sản phẩm</h3>
+          <hr>
+          <p>Hoàn tất các thông tin bên dưới để thiết lập sản phẩm mới:</p>
+          <form class="row">
+            <div class="col-lg-6 col-sm-12">
+              <div class="form-group">
+                <label for="pr_name">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="pr_name" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm">
+              </div>
+              <div class="form-group">
+                <label for="pr_price_start">Giá khởi điểm</label>
+                <input type="number" class="form-control" id="pr_price_start" placeholder="Nhập giá khởi điểm">
+              </div>
+              <div class="form-group">
+                <label for="pr_price_range">Bước giá</label>
+                <input type="number" class="form-control" id="pr_price_range" placeholder="Nhập bước giá">
+              </div>
+              <div class="form-group">
+                <label for="pr_short_des">Mô tả ngắn:</label>
+                <textarea class="form-control" id="pr_short_des" rows="4" placeholder="Nhập mô tả ngắn"></textarea>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <div class="form-group">
+                <label>Ngày bắt đầu</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
+                  <input type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
+                  <input type="number" class="form-control" min="2018" placeholder="Nhập Năm">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Ngày kết thúc</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
+                  <input type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
+                  <input type="number" class="form-control" min="2018" placeholder="Nhập Năm">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <h3 class="h4">Hình ảnh sản phẩm</h3>
+              <hr>
+              <div class="uploaded-imgs">
+                  <output id="result" ></output>
+                <!-- <div class="d-inline-block up-img" *ngFor="let pic of picSources">
+                  <img src="{{pic.result}}" alt="" class="img-responsive">
+                  <a href="#" class="close-btn"><i class="fa fa-close"></i></a>
+                </div>
+                <div class="d-inline-block up-img">
+                  <img src="img/product02.png" alt="" class="img-responsive">
+                  <a href="#" class="close-btn"><i class="fa fa-close"></i></a>
+                </div>
+                <div class="d-inline-block up-img">
+                  <img src="img/product03.png" alt="" class="img-responsive">
+                  <a href="#" class="close-btn"><i class="fa fa-close"></i></a>
+                </div> -->
+              </div>
+              <a href="#" class="btn btn-warning add-more">
+                <i class="fa fa-plus"></i>
+                <span>Thêm ảnh</span>
+                <input id="files" type="file" multiple #fileInput (change)="save()"/>
+                
+              </a>
+            </div>
+            <div class="col-12 mt-4">
+              <h3 class="h4">Thông tin sản phẩm</h3>
+              <hr>
+              <div class="summernote form-group" id="pr_long_des" data-placeholder="Nhập thông tin sản phẩm" data-height="180"></div>
+            </div>
+            <div class="col-12 mt-4">
+              <h3 class="h4">Thông số sản phẩm</h3>
+              <hr>
+              <div class="summernote form-group" id="pr_data_des" data-placeholder="Nhập thông số sản phẩm" data-height="180"></div>
+            </div>
+            <div class="col-12 mt-4">
+              <div class="text-center">
+                <input type="reset" class="btn btn-secondary text-uppercase" value="Nhập lại">
+                <button  (click)="save()" type="button" class="btn btn-warning text-uppercase">Thêm đấu giá</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <service-list></service-list>
+      </div>
+    </div>
+  </section>
