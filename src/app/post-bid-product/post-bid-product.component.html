@@ -14,40 +14,40 @@
           <h3 class="h4">Thông tin sản phẩm</h3>
           <hr>
           <p>Hoàn tất các thông tin bên dưới để thiết lập sản phẩm mới:</p>
-          <form class="row">
+          <form class="row" [formGroup]="createForm">
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label for="pr_name">Tên sản phẩm</label>
-                <input type="text" class="form-control" id="pr_name" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm">
+                <input formControlName="name" type="text" class="form-control" id="pr_name" aria-describedby="emailHelp" placeholder="Nhập tên sản phẩm">
               </div>
               <div class="form-group">
                 <label for="pr_price_start">Giá khởi điểm</label>
-                <input type="number" class="form-control" id="pr_price_start" placeholder="Nhập giá khởi điểm">
+                <input formControlName="initialPrice" type="number" class="form-control" id="pr_price_start" placeholder="Nhập giá khởi điểm">
               </div>
               <div class="form-group">
                 <label for="pr_price_range">Bước giá</label>
-                <input type="number" class="form-control" id="pr_price_range" placeholder="Nhập bước giá">
+                <input formControlName="priceStep" type="number" class="form-control" id="pr_price_range" placeholder="Nhập bước giá">
               </div>
               <div class="form-group">
                 <label for="pr_short_des">Mô tả ngắn:</label>
-                <textarea class="form-control" id="pr_short_des" rows="4" placeholder="Nhập mô tả ngắn"></textarea>
+                <textarea formControlName="description" class="form-control" id="pr_short_des" rows="4" placeholder="Nhập mô tả ngắn"></textarea>
               </div>
             </div>
             <div class="col-lg-6 col-sm-12">
               <div class="form-group">
                 <label>Ngày bắt đầu</label>
                 <div class="input-group">
-                  <input type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
-                  <input type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
-                  <input type="number" class="form-control" min="2018" placeholder="Nhập Năm">
+                  <input formControlName="startDateDay" type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
+                  <input formControlName="startDateMonth" type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
+                  <input formControlName="startDateYear" type="number" class="form-control" min="2018" placeholder="Nhập Năm">
                 </div>
               </div>
               <div class="form-group">
                 <label>Ngày kết thúc</label>
                 <div class="input-group">
-                  <input type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
-                  <input type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
-                  <input type="number" class="form-control" min="2018" placeholder="Nhập Năm">
+                  <input formControlName="endDateDay" type="number" class="form-control" min="1" max="31" placeholder="Nhập ngày">
+                  <input formControlName="endDateMonth" type="number" class="form-control" min="1" max="12" placeholder="Nhập Tháng">
+                  <input formControlName="endDateYear" type="number" class="form-control" min="2018" placeholder="Nhập Năm">
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@
               <a href="#" class="btn btn-warning add-more">
                 <i class="fa fa-plus"></i>
                 <span>Thêm ảnh</span>
-                <input id="files" type="file" multiple #fileInput (change)="save()"/>
+                <input id="files" type="file" multiple #fileInput (change)="addImage()"/>
                 
               </a>
             </div>
@@ -90,6 +90,20 @@
               <div class="text-center">
                 <input type="reset" class="btn btn-secondary text-uppercase" value="Nhập lại">
                 <button  (click)="save()" type="button" class="btn btn-warning text-uppercase">Thêm đấu giá</button>
+              </div>
+            </div>
+            <div class="col-12 mt-4">
+              <div *ngIf="createForm.invalid" class="custom-control custom-checkbox my-1 mr-sm-2">
+                <p *ngIf="createForm.get('name').invalid && createForm.get('name').errors.required">{{"nameRequired"| translate}}</p>
+                <p *ngIf="createForm.get('initialPrice').invalid && createForm.get('initialPrice').errors.required">{{"initialPriceRequired"| translate}}</p>
+                <p *ngIf="createForm.get('priceStep').invalid && createForm.get('priceStep').errors.required">{{"priceStepRequired"| translate}}</p>
+                <p *ngIf="createForm.get('description').invalid && createForm.get('description').errors.required">{{"descriptionRequired"| translate}}</p>
+                <p *ngIf="createForm.get('startDateDay').invalid && createForm.get('startDateDay').errors.required">{{"startDateDayRequired"| translate}}</p>
+                <p *ngIf="createForm.get('startDateMonth').invalid && createForm.get('startDateMonth').errors.required">{{"startDateMonthRequired"| translate}}</p>
+                <p *ngIf="createForm.get('startDateYear').invalid && createForm.get('startDateYear').errors.required">{{"startDateYearRequired"| translate}}</p>
+                <p *ngIf="createForm.get('endDateDay').invalid && createForm.get('endDateDay').errors.required">{{"endDateDayRequired"| translate}}</p>
+                <p *ngIf="createForm.get('endDateMonth').invalid && createForm.get('endDateMonth').errors.required">{{"endDateMonthRequired"| translate}}</p>
+                <p *ngIf="createForm.get('endDateYear').invalid && createForm.get('endDateYear').errors.required">{{"endDateYearRequired"| translate}}</p>
               </div>
             </div>
           </form>

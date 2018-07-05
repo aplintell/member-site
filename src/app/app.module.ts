@@ -26,6 +26,7 @@ import { SuccessBidProductsComponent } from './home/success-bid-products/success
 import { HeaderAreaComponent } from './common-component/header-area/header-area.component';
 import { FooterAreaComponent } from './common-component/footer-area/footer-area.component';
 import { ServiceListComponent } from './common-component/service-list/service-list.component';
+import { BiddingProductService } from '../service/bidding-product.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -85,7 +86,8 @@ export function createTranslateLoader(http: HttpClient) {
     GlobalService,
     LoginService,
     CustomerService,
-    CategoryService
+    CategoryService,
+    BiddingProductService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,12 @@
+{
+    "nameRequired" : "Vui lòng nhập Tên sản phẩm",
+    "initialPriceRequired" : "Vui lòng nhập Giá sản phẩm",
+    "priceStepRequired": "Vui lòng nhập Bước giá",
+    "descriptionRequired":"Vui lòng nhập Mô tả ngắn",
+    "startDateDayRequired": "Vui lòng nhập Ngày bắt đầu",
+    "startDateMonthRequired": "Vui lòng nhập Tháng bắt đầu",
+    "startDateYearRequired": "Vui lòng nhập Năm bắt đầu",
+    "endDateDayRequired": "Vui lòng nhập Ngày kết thúc",
+    "endDateMonthRequired": "Vui lòng nhập Tháng kết thúc",
+    "endDateYearRequired": "Vui lòng nhập Năm kết thúc"
+}
