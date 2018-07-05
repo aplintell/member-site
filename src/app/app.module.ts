@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GlobalService } from '../service/global.service';
 import { LoginService } from '../service/login.service';
 import { CustomerService } from '../service/customer.service';
-import { PostBidProductComponent } from './post-bid-product/post-bid-product.component';
 import { GlobalErrorHandler } from '../error/global-error-handler';
 import { HomeBranchesComponent } from './home/home-branches/home-branches.component';
 import { CategoriesComponent } from './home/categories/categories.component';
@@ -27,6 +26,14 @@ import { HeaderAreaComponent } from './common-component/header-area/header-area.
 import { FooterAreaComponent } from './common-component/footer-area/footer-area.component';
 import { ServiceListComponent } from './common-component/service-list/service-list.component';
 import { BiddingProductService } from '../service/bidding-product.service';
+import { ContactComponent } from './contact/contact.component';
+import { ContentComponent } from './content/content.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { BiddingListComponent } from './bidding-list/bidding-list.component';
+import { PersonalShopComponent } from './personal-shop/personal-shop.component';
+import { BiddingProductDetailsComponent } from './bidding-product-details/bidding-product-details.component';
+import { BiddingPaymentComponent } from './bidding-payment/bidding-payment.component';
+import { BiddingProductPostComponent } from './bidding-product-post/bidding-product-post.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +54,14 @@ export function createTranslateLoader(http: HttpClient) {
     VipBidProductsComponent,
     NewBidProductsComponent,
     SuccessBidProductsComponent,
-    PostBidProductComponent
+    ContactComponent,
+    ContentComponent,
+    ForgotPasswordComponent,
+    BiddingListComponent,
+    PersonalShopComponent,
+    BiddingProductDetailsComponent,
+    BiddingPaymentComponent,
+    BiddingProductPostComponent
   ],
   imports: [
     BrowserModule,
@@ -72,8 +86,36 @@ export function createTranslateLoader(http: HttpClient) {
         component: LoginComponent
       },
       {
-        path: 'post-bid-product',
-        component: PostBidProductComponent
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'content',
+        component: ContentComponent
+      },
+      {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
+      },
+      {
+        path: 'bidding-payment',
+        component: BiddingPaymentComponent
+      },
+      {
+        path: 'personal-shop',
+        component: PersonalShopComponent
+      },
+      {
+        path: 'bidding-list',
+        component: BiddingListComponent
+      },
+      {
+        path: 'bidding-product-details',
+        component: BiddingProductDetailsComponent
+      },
+      {
+        path: 'bidding-product-post',
+        component: BiddingProductPostComponent
       }
       
     ])
