@@ -19,8 +19,7 @@ Category
         this.categories = data.json().map(
           (category: Category) => new Category().deserialize(category));
         console.log(this.categories);
-      },
-      (error: Response)=> {throw error});
+      });
   }
 
 }

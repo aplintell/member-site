@@ -110,7 +110,7 @@ export function createTranslateLoader(http: HttpClient) {
         component: BiddingListComponent
       },
       {
-        path: 'bidding-product-details',
+        path: 'bidding-product-details/:bidding-product',
         component: BiddingProductDetailsComponent
       },
       {

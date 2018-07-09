@@ -48,9 +48,6 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl("/", { skipLocationChange: false });
           }
           
-        },
-        (error : Response) =>{
-          throw error;
         }
       )
     }
@@ -81,12 +78,8 @@ export class LoginComponent implements OnInit {
               this.message = "ACTION_SUCCESS";
               this.resetRegisterForm();
             }
-          },(error : Response) =>{
-            throw error;
           });
         }
-      },(error : Response) =>{
-        throw error;
       });
     }
   }

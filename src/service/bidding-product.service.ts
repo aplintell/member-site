@@ -19,4 +19,8 @@ export class BiddingProductService {
     return this.http.post(this.globalService.serviceHost + "/bidding-product/save", params, this.globalService.formTypeOpion);
   }
 
+  get(productId: number){
+    return this.http.get(this.globalService.serviceHost + "/bidding-product/get?id="+productId,  this.globalService.formTypeOpion);
+  }
+
 }

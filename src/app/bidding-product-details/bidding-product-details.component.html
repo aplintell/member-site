@@ -1,12 +1,12 @@
-<section class="main-sect">
+<section *ngIf="isLoaded" class="main-sect">
   <div class="container">
     <div class="row">
       <div class="col-12 page-header mb-3">
         <nav aria-label="breadcrumb" class="full-sect">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="#">Điện thoại Oppo</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><span>Điện thoại Oppo F5</span></li>
+            <li class="breadcrumb-item"><a href="#">{{category.name}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><span>{{product.name}}</span></li>
           </ol>
         </nav>
       </div>
@@ -14,22 +14,22 @@
         <div class="pr-details row">
           <div class="col-lg-6 col-sm-12 dual-carousel">
             <div class="product-photos-carousel -for">
-              <div class="product-photo"><img src="https://picsum.photos/600/800/?random" alt=""></div>
-              <div class="product-photo"><img src="https://picsum.photos/800/600/?random" alt=""></div>
-              <div class="product-photo"><img src="https://picsum.photos/600/600/?random" alt=""></div>
-              <div class="product-photo"><img src="https://picsum.photos/800/800/?random" alt=""></div>
-              <div class="product-photo"><img src="https://picsum.photos/300/300/?random" alt=""></div>
+              <div class="product-photo"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+              <div class="product-photo"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+              <div class="product-photo"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+              <div class="product-photo"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+              <div class="product-photo"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
             </div>
             <div class="product-thumbs-carousel -nav">
-              <div class="product-thumb"><img src="https://picsum.photos/600/800/?random" alt=""></div>
-              <div class="product-thumb"><img src="https://picsum.photos/800/600/?random" alt=""></div>
-              <div class="product-thumb"><img src="https://picsum.photos/600/600/?random" alt=""></div>
-              <div class="product-thumb"><img src="https://picsum.photos/800/800/?random" alt=""></div>
-              <div class="product-thumb"><img src="https://picsum.photos/300/300/?random" alt=""></div>
+                <div class="product-thumb"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+                <div class="product-thumb"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+                <div class="product-thumb"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+                <div class="product-thumb"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
+                <div class="product-thumb"><img src="{{imageUrl}}001531109817243.png" alt=""></div>
             </div>
           </div>
           <div class="col-lg-6 col-sm-12 product-des">
-            <h1 class="h4 mt-5 mb-2">Oppo F7</h1>
+            <h1 class="h4 mt-5 mb-2">{{product.name}}</h1>
             <div class="stars mb-2">
               <i class="fa fa-star active"></i>
               <i class="fa fa-star active"></i>
@@ -38,16 +38,8 @@
               <i class="fa fa-star"></i>
               <span>(5 người đánh giá)</span>
             </div>
-            <div class="product-price h3">1.000.000 đ</div>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ut delectus minima at sit, sequi facere qui illum quasi minus consequuntur repudiandae dolorum. Omnis excepturi magni laborum molestias earum illo.</p>
-            <blockquote class="blockquote">
-              <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <ul class="list-default mt-2">
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-                <li>Integer molestie lorem at massa</li>
-              </ul>
-            </blockquote>
+            <div class="product-price h3">{{product.initialPrice}}</div>
+            {{product.description}}
             <form action="" class="free-size-form">
               <div class="form-group">
                 <label for="exampleInputEmail1" class="text-uppercase">Số lượng</label>
@@ -90,27 +82,10 @@
               <div class="col-lg-9 col-sm-12">
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, non. Iure atque, at dolor maiores culpa est odit libero praesentium quae necessitatibus minima reprehenderit impedit nesciunt provident nobis accusamus delectus.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis, deserunt veniam. Officia, porro nobis eaque dolore id natus impedit quam corporis fugiat qui nam necessitatibus consequatur officiis ducimus reprehenderit vitae.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia suscipit fugit aperiam consequuntur? Placeat, dignissimos consequuntur. Consequuntur commodi nostrum esse facere illo omnis. Quod beatae quae cumque ipsam quasi quas.</p>
+                    {{product.information}}  
                   </div>
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                      <table class="table">
-                          <tbody>
-                            <tr>
-                              <th scope="row">Lorem, ipsum dolor.</th>
-                              <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, deleniti?</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Lorem, ipsum dolor.</th>
-                              <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, distinctio.</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">Lorem ipsum dolor sit.</th>
-                              <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, totam.</td>
-                            </tr>
-                          </tbody>
-                        </table>  
+                    {{product.specification}} 
                   </div>
                   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda maxime ab magni nam illum mollitia voluptates esse. Ut accusamus commodi, laudantium quasi ducimus quia! Recusandae harum quia veniam aut aliquam.</div>
                 </div>
