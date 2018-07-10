@@ -7,7 +7,7 @@ export class GlobalService {
 
   serviceHost: string = "http://localhost:8080/sgdg";
   // serviceHost: string = "/sgdg";
-  userCookie: string = "ucsid";
+  userCookie: string = "ccsid";
   jsonContentTypeOption: RequestOptions;
   formTypeOpion: RequestOptions;
   fileTypeOpion: RequestOptions;

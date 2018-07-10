@@ -18,13 +18,11 @@ export class MeService {
    }
 
   setMe(){
+    console.log("call");
     return this.http.post(this.globalService.serviceHost +"/customer/me",new URLSearchParams(),this.globalService.formTypeOpion).subscribe(
       data =>{
         this.meSource.next(new Me().deserialize(data.json()));
-      },
-      (error : Response) =>{
-        throw error;
-      }
-    );
+      });
   }
+  
 }

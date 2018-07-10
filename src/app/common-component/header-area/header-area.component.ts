@@ -1,5 +1,7 @@
+import { MeService } from './../../../service/me.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Me } from '../../../entity/me';
 
 @Component({
   selector: 'header-area',
@@ -8,12 +10,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderAreaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  me: Me;
+
+  constructor(private router: Router, private meService: MeService) {
+    this.meService.me.subscribe(me => {
+      this.me = me;
+    });
+   }
 
   ngOnInit() {
   }
 
-  initLoginPage(){
-    this.router.navigateByUrl("/login", { skipLocationChange: false });
-  }
 }

@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { CustomValidators } from '../../validator/CustomValidators';
 import { CustomerService } from '../../service/customer.service';
 import { Customer } from '../../entity/customer';
+import { MeService } from '../../service/me.service';
+import { Me } from '../../entity/me';
 
 @Component({
   selector: 'app-login',
@@ -21,11 +23,20 @@ export class LoginComponent implements OnInit {
   isSubmitted: boolean = false;
   isRegisterSubmitted: boolean = false;
   message: string = '';
+  me: Me;
 
   constructor(private fb: FormBuilder, private loginService: LoginService, 
     private globalService: GlobalService, private router: Router,
-    private translate: TranslateService, private customerService: CustomerService) {  
+    private translate: TranslateService, private customerService: CustomerService, 
+    private meService: MeService) {  
       translate.use("login-vn");
+      this.meService.me.subscribe(me => {
+        this.me = me;
+        console.log(this.me);
+        if(this.me != null && this.me.customerId != 0){
+          this.router.navigateByUrl("/", { skipLocationChange: false });
+        }
+      });
   }
 
   ngOnInit() {
@@ -42,9 +53,9 @@ export class LoginComponent implements OnInit {
             this.loginForm.setErrors({
               loginError:{message: data.text()}
             });
-            console.log(this.loginForm);
           } else {
             this.globalService.setCookie(this.globalService.userCookie, data.text(), 2);
+            this.meService.setMe();
             this.router.navigateByUrl("/", { skipLocationChange: false });
           }
           

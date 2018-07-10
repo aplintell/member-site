@@ -4,7 +4,8 @@
         <div class="row">
           <div class="col-12 text-right">
             <a >Chăm sóc khách hàng</a>
-            <a (click)="initLoginPage()">Đăng nhập / Đăng ký</a>
+            <a *ngIf="me == null || me.customerId == 0" [routerLink]="['/login']">Đăng nhập / Đăng ký</a>
+            <a *ngIf="me != null && me.customerId != 0">Xin chào {{me.name}}</a>
           </div>
         </div>
       </div>

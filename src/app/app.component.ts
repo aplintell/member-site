@@ -19,12 +19,6 @@ export class AppComponent {
     translate.use('vn');
     this.meService.me.subscribe(me => {
       this.me = me;
-      console.log(this.me);
-      // if(me != null && me.name == null){
-      //   this.router.navigateByUrl("/login", { skipLocationChange: false });
-      // }else if(me != null && me.name != null){
-      //   this.router.navigateByUrl("/", { skipLocationChange: false });
-      // }
     });
   }
 
