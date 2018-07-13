@@ -5,7 +5,7 @@
         <nav aria-label="breadcrumb" class="full-sect">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-            <li class="breadcrumb-item"><a href="#">{{category.name}}</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/danh-muc-dau-gia/'+category.parsingUrl+'-'+category.categoryId]">{{category.name}}</a></li>
             <li class="breadcrumb-item active" aria-current="page"><span>{{product.name}}</span></li>
           </ol>
         </nav>

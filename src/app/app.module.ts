@@ -106,11 +106,11 @@ export function createTranslateLoader(http: HttpClient) {
         component: PersonalShopComponent
       },
       {
-        path: 'bidding-list',
+        path: 'danh-muc-dau-gia/:bidding-category',
         component: BiddingListComponent
       },
       {
-        path: 'bidding-product-details/:bidding-product',
+        path: 'san-pham-dau-gia/:bidding-product',
         component: BiddingProductDetailsComponent
       },
       {

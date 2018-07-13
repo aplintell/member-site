@@ -10,6 +10,7 @@ import { CustomerService } from '../../service/customer.service';
 import { Customer } from '../../entity/customer';
 import { MeService } from '../../service/me.service';
 import { Me } from '../../entity/me';
+import { Window } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-login',
@@ -55,8 +56,11 @@ export class LoginComponent implements OnInit {
             });
           } else {
             this.globalService.setCookie(this.globalService.userCookie, data.text(), 2);
-            this.meService.setMe();
-            this.router.navigateByUrl("/", { skipLocationChange: false });
+            this.meService.getMe().subscribe(
+              data =>{
+                this.meService.updateMe(new Me().deserialize(data.json()));
+                window.location.replace("/");
+              });
           }
           
         }

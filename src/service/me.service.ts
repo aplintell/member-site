@@ -14,15 +14,18 @@ export class MeService {
   me = this.meSource.asObservable();
 
   constructor(private globalService: GlobalService, private http:Http) {
-    this.setMe();
+    this.getMe().subscribe(
+      data =>{
+        this.updateMe(new Me().deserialize(data.json()));
+      });;
    }
 
-  setMe(){
-    console.log("call");
-    return this.http.post(this.globalService.serviceHost +"/customer/me",new URLSearchParams(),this.globalService.formTypeOpion).subscribe(
-      data =>{
-        this.meSource.next(new Me().deserialize(data.json()));
-      });
+  getMe(){
+    return this.http.post(this.globalService.serviceHost +"/customer/me",new URLSearchParams(),this.globalService.formTypeOpion);
+  }
+
+  updateMe(me:Me){
+    this.meSource.next(me);
   }
   
 }
