@@ -117,5 +117,4 @@
     d(s).ready(function() {
         t.init();
     });
-    console.log("main-dist.js");
 }(jQuery, window, document);

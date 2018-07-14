@@ -26,8 +26,9 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/material-design-icons/iconfont/material-icons.css",
               "src/styles.css",
-              "src/assets/js/slick-theme.css",
-              "src/assets/js/slick.css"
+              "src/assets/css/style.css",
+              "src/assets/css/slick-theme.css",
+              "src/assets/css/slick.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
