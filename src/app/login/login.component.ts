@@ -26,18 +26,18 @@ export class LoginComponent implements OnInit {
   message: string = '';
   me: Me;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, 
+  constructor(private fb: FormBuilder, private loginService: LoginService,
     private globalService: GlobalService, private router: Router,
-    private translate: TranslateService, private customerService: CustomerService, 
-    private meService: MeService) {  
-      translate.use("login-vn");
-      this.meService.me.subscribe(me => {
-        this.me = me;
-        console.log(this.me);
-        if(this.me != null && this.me.customerId != 0){
-          this.router.navigateByUrl("/", { skipLocationChange: false });
-        }
-      });
+    private translate: TranslateService, private customerService: CustomerService,
+    private meService: MeService) {
+    translate.use("login-vn");
+    this.meService.me.subscribe(me => {
+      this.me = me;
+      console.log(this.me);
+      if (this.me != null && this.me.customerId != 0) {
+        this.router.navigateByUrl("/", { skipLocationChange: false });
+      }
+    });
   }
 
   ngOnInit() {
@@ -45,68 +45,68 @@ export class LoginComponent implements OnInit {
     this.registerForm = this.initRegisterForm();
   }
 
-  login(){
+  login() {
     this.isSubmitted = true;
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
       return this.loginService.login(this.loginForm.value.loginId, this.loginForm.value.password).subscribe(
         data => {
-          if(data.text() == 'LOGIN_ID_NOT_EXIST' || data.text() == 'PASSWORD_INCORRECT'){
+          if (data.text() == 'LOGIN_ID_NOT_EXIST' || data.text() == 'PASSWORD_INCORRECT') {
             this.loginForm.setErrors({
-              loginError:{message: data.text()}
+              loginError: { message: data.text() }
             });
           } else {
             this.globalService.setCookie(this.globalService.userCookie, data.text(), 2);
             this.meService.getMe().subscribe(
-              data =>{
+              data => {
                 this.meService.updateMe(new Me().deserialize(data.json()));
                 window.location.replace("/");
               });
           }
-          
+
         }
       )
     }
   }
 
-  register(){
+  register() {
     this.isRegisterSubmitted = true;
     this.message = '';
-    if(this.registerForm.value.password != this.registerForm.value.repeatPassword){
+    if (this.registerForm.value.password != this.registerForm.value.repeatPassword) {
       this.registerForm.setErrors({
         passwordNotMatch: true
       });
       return;
     }
 
-    if(this.registerForm.valid){
+    if (this.registerForm.valid) {
       this.customerService.isLoginIdExist(this.registerForm.value.loginId).subscribe(
-        response =>{
-          if(response.text()=='true'){
-          this.registerForm.controls['loginId'].setErrors({
-            exist: true
-          });
-        } else {
-          let customer = new Customer().deserialize(this.registerForm.value);
-          this.customerService.save(customer).subscribe(response=>{
-            if(response.text() == 'true'){
-              this.isRegisterSubmitted = false;
-              this.message = "ACTION_SUCCESS";
-              this.resetRegisterForm();
-            }
-          });
-        }
-      });
+        response => {
+          if (response.text() == 'true') {
+            this.registerForm.controls['loginId'].setErrors({
+              exist: true
+            });
+          } else {
+            let customer = new Customer().deserialize(this.registerForm.value);
+            this.customerService.save(customer).subscribe(response => {
+              if (response.text() == 'true') {
+                this.isRegisterSubmitted = false;
+                this.message = "ACTION_SUCCESS";
+                this.resetRegisterForm();
+              }
+            });
+          }
+        });
     }
   }
 
-  initLoginForm(){
+  initLoginForm() {
     return this.fb.group({
       loginId: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  initRegisterForm(){
+  initRegisterForm() {
     return this.fb.group({
       loginId: ['', [Validators.required, Validators.email, CustomValidators.notContainSpace]],
       password: ['', [Validators.required, CustomValidators.notContainSpace]],
@@ -114,9 +114,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  resetRegisterForm(){
+  resetRegisterForm() {
     this.registerForm.clearValidators;
-    this.registerForm.reset({loginId:"",password:"",repeatPassword:""});
+    this.registerForm.reset({ loginId: "", password: "", repeatPassword: "" });
   }
 
 }
